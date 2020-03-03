@@ -1,4 +1,5 @@
 import textwrap
+import argparse
 
 
 def full_justify(line, width):
@@ -41,15 +42,21 @@ def wrapper(paragraph, width):
     return wrapped
 
 
-if __name__ == '__main__':
-    P = "This is a sample text but a complicated problem to be solved, so we are adding more text to see that it actually works."
-    WIDTH = 20
-
+def wrapper_justified(paragraph, width):
     # get array with wrapped lines
-    wrapped = wrapper(P, WIDTH)
+    wrapped = wrapper(paragraph, width)
 
-    # print results
     for i, line in enumerate(wrapped):
-        justified = full_justify(line, WIDTH)
+        # justify line
+        justified = full_justify(line, width)
+
+        # print results
         formatted = 'Array [{0}] = "{1}"'.format(i+1, justified)
         print(formatted)    
+
+
+if __name__ == '__main__':
+    P1 = "This is a sample text but a complicated problem to be solved, so we are adding more text to see that it actually works."
+    WIDTH = 20
+
+    wrapper_justified(P1, WIDTH) 
